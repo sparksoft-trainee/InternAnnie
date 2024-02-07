@@ -9,7 +9,7 @@ Amplify.configure(amplifyconfig);
 const App = ({ signOut, user }) => {
   return (
     <div className='container mx-auto my-auto flex flex-col justify-center align-center'>
-      {/* <Heading level={1}>Hello {user.username}</Heading> */}
+      <Heading level={1}>Hello {user.username}</Heading>
       {/* <Button onClick={signOut}>Sign out</Button>       */}
       <TodoList />
     </div>
