@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "internannie",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authinternannie7f2156c9",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

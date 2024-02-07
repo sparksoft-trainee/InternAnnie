@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import './input.css';
+import { Amplify } from 'aws-amplify';
+import amplifyconfig from './amplifyconfiguration.json';
+import { withAuthenticator, Button, Heading } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
+import TodoList from './components/ToDoList';
+Amplify.configure(amplifyconfig);
 
-function App() {
+const App = ({ signOut, user }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container mx-auto my-auto flex flex-col justify-center align-center'>
+      {/* <Heading level={1}>Hello {user.username}</Heading> */}
+      {/* <Button onClick={signOut}>Sign out</Button>       */}
+      <TodoList />
     </div>
   );
-}
+};
 
-export default App;
+export default withAuthenticator(App);
