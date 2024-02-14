@@ -22,18 +22,15 @@ export declare type ValidationResponse = {
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type TodoUpdateFormInputValues = {
-    name?: string;
-    description?: string;
+    task?: string;
 };
 export declare type TodoUpdateFormValidationValues = {
-    name?: ValidationFunction<string>;
-    description?: ValidationFunction<string>;
+    task?: ValidationFunction<string>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type TodoUpdateFormOverridesProps = {
     TodoUpdateFormGrid?: PrimitiveOverrideProps<GridProps>;
-    name?: PrimitiveOverrideProps<TextFieldProps>;
-    description?: PrimitiveOverrideProps<TextFieldProps>;
+    task?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type TodoUpdateFormProps = React.PropsWithChildren<{
     overrides?: TodoUpdateFormOverridesProps | undefined | null;

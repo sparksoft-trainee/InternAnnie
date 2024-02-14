@@ -1,0 +1,16 @@
+lockfileVersion: '6.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+devDependencies:
+  '@types/aws-lambda':
+    specifier: ^8.10.92
+    version: 8.10.133
+
+packages:
+
+  /@types/aws-lambda@8.10.133:
+    resolution: {integrity: sha512-sr852MAL/79rjDelXP6ZuJ6GwOvXIRrFAoC8a+w91mZ5XR71CuzSgo1d0+pG1qgfPhjFgaibu7SWaoC5BA7pyQ==}
+    dev: true

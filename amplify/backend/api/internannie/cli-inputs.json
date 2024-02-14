@@ -6,6 +6,27 @@
     "defaultAuthType": {
       "mode": "AMAZON_COGNITO_USER_POOLS",
       "cognitoUserPoolId": "authinternannie7f2156c9"
-    }
+    },
+    "conflictResolution": {},
+    "additionalAuthTypes": [
+      {
+        "mode": "AMAZON_COGNITO_USER_POOLS",
+        "cognitoUserPoolId": "authinternannie7f2156c9"
+      },
+      {
+        "mode": "AWS_IAM"
+      },
+      {
+        "mode": "AWS_LAMBDA",
+        "lambdaFunction": "graphQlLambdaAuthorizerac4290b4",
+        "ttlSeconds": "300"
+      },
+      {
+        "mode": "API_KEY",
+        "expirationTime": 7,
+        "apiKeyExpirationDate": "2024-02-20T15:53:30.524Z",
+        "keyDescription": "Todo API key"
+      }
+    ]
   }
 }

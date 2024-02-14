@@ -9,7 +9,8 @@
       "UnauthRoleName": "amplify-amplify7eedf5bbb0434-staging-52727-unauthRole",
       "StackName": "amplify-amplify7eedf5bbb0434-staging-52727",
       "StackId": "arn:aws:cloudformation:ap-southeast-1:242771580077:stack/amplify-amplify7eedf5bbb0434-staging-52727/94d92ec0-c579-11ee-8a26-0a18028b6a63",
-      "AmplifyAppId": "d2sikncegjez07"
+      "AmplifyAppId": "d2sikncegjez07",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-amplify7eedf5bbb0434-staging-52727-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
     },
     "categories": {
       "auth": {
@@ -17,6 +18,15 @@
       },
       "api": {
         "internannie": {}
+      },
+      "function": {
+        "internannie7f2156c9CreateAuthChallenge": {},
+        "internannie7f2156c9DefineAuthChallenge": {},
+        "internannie7f2156c9VerifyAuthChallengeResponse": {
+          "RECAPTCHASECRET": "6Lcn9nApAAAAAF9Y1KIetFudMFMou8uQ4Xv1xrD0"
+        },
+        "graphQlLambdaAuthorizer880782a6": {},
+        "graphQlLambdaAuthorizerac4290b4": {}
       }
     }
   }

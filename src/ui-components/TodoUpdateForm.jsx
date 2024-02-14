@@ -25,20 +25,15 @@ export default function TodoUpdateForm(props) {
     ...rest
   } = props;
   const initialValues = {
-    name: "",
-    description: "",
+    task: "",
   };
-  const [name, setName] = React.useState(initialValues.name);
-  const [description, setDescription] = React.useState(
-    initialValues.description
-  );
+  const [task, setTask] = React.useState(initialValues.task);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     const cleanValues = todoRecord
       ? { ...initialValues, ...todoRecord }
       : initialValues;
-    setName(cleanValues.name);
-    setDescription(cleanValues.description);
+    setTask(cleanValues.task);
     setErrors({});
   };
   const [todoRecord, setTodoRecord] = React.useState(todoModelProp);
@@ -58,8 +53,7 @@ export default function TodoUpdateForm(props) {
   }, [idProp, todoModelProp]);
   React.useEffect(resetStateValues, [todoRecord]);
   const validations = {
-    name: [{ type: "Required" }],
-    description: [],
+    task: [{ type: "Required" }],
   };
   const runValidationTasks = async (
     fieldName,
@@ -87,8 +81,7 @@ export default function TodoUpdateForm(props) {
       onSubmit={async (event) => {
         event.preventDefault();
         let modelFields = {
-          name,
-          description: description ?? null,
+          task,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -141,54 +134,28 @@ export default function TodoUpdateForm(props) {
       {...rest}
     >
       <TextField
-        label="Name"
+        label="Task"
         isRequired={true}
         isReadOnly={false}
-        value={name}
+        value={task}
         onChange={(e) => {
           let { value } = e.target;
           if (onChange) {
             const modelFields = {
-              name: value,
-              description,
+              task: value,
             };
             const result = onChange(modelFields);
-            value = result?.name ?? value;
+            value = result?.task ?? value;
           }
-          if (errors.name?.hasError) {
-            runValidationTasks("name", value);
+          if (errors.task?.hasError) {
+            runValidationTasks("task", value);
           }
-          setName(value);
+          setTask(value);
         }}
-        onBlur={() => runValidationTasks("name", name)}
-        errorMessage={errors.name?.errorMessage}
-        hasError={errors.name?.hasError}
-        {...getOverrideProps(overrides, "name")}
-      ></TextField>
-      <TextField
-        label="Description"
-        isRequired={false}
-        isReadOnly={false}
-        value={description}
-        onChange={(e) => {
-          let { value } = e.target;
-          if (onChange) {
-            const modelFields = {
-              name,
-              description: value,
-            };
-            const result = onChange(modelFields);
-            value = result?.description ?? value;
-          }
-          if (errors.description?.hasError) {
-            runValidationTasks("description", value);
-          }
-          setDescription(value);
-        }}
-        onBlur={() => runValidationTasks("description", description)}
-        errorMessage={errors.description?.errorMessage}
-        hasError={errors.description?.hasError}
-        {...getOverrideProps(overrides, "description")}
+        onBlur={() => runValidationTasks("task", task)}
+        errorMessage={errors.task?.errorMessage}
+        hasError={errors.task?.hasError}
+        {...getOverrideProps(overrides, "task")}
       ></TextField>
       <Flex
         justifyContent="space-between"
